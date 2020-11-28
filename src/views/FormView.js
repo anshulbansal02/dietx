@@ -1,44 +1,23 @@
-import React, { useState, useRef } from "react";
+import React from "react";
 import "./FormView.css";
 
-import FormElement from "../components/FormElement";
+import Slot from "../components/Slot";
 import EditableText from "../components/EditableText";
 import { v4 as uuid } from "uuid";
 
 import { connect } from "react-redux";
-import { addLabel, removeLabel } from "../actions";
+import { addSlot, removeSlot } from "../actions";
 
-const FormView = () => {
-	const FormElementListRef = useRef(null);
-
-	const [labelList, setLabelList] = useState([]);
-
-	const handleRemove = (labelId) => {
-		removeLabel(labelId);
-		setLabelList(labelList.filter((item) => item.id !== labelId));
-		// also remove from global store
-	};
-
-	const renderLabelList = () => {
-		return labelList.map((item) => {
-			return (
-				<FormElement
-					removeThis={handleRemove}
-					label={item.label}
-					key={item.id}
-					id={item.id}
-				/>
-			);
+const FormView = ({ slotList, addSlot }) => {
+	const renderSlotList = () => {
+		return slotList.map((slot) => {
+			return <Slot label={slot.label} key={slot.id} id={slot.id} />;
 		});
 	};
 
-	const addFormElement = () => {
-		// Maybe add a modal for initial label
-		const id = uuid();
-		addLabel(id, "Untitled Label");
-
-		setLabelList([...labelList, { id, label: "Untitled Label" }]);
-
+	const addSlotToList = () => {
+		// Add a modal for initial slot label
+		addSlot(uuid(), "Untitled Slot");
 		// Add Scrolltobottom
 	};
 
@@ -53,13 +32,11 @@ const FormView = () => {
 					emptyValue="Untitled Plan"
 					className="plan-title"
 				/>
-				<div className="form" ref={FormElementListRef}>
-					{renderLabelList()}
-				</div>
+				<div className="form">{renderSlotList()}</div>
 			</div>
 			<div className="btn-row">
 				<button className="final-btn">Finalize Plan</button>
-				<button className="add-btn" onClick={addFormElement}>
+				<button className="add-btn" onClick={addSlotToList}>
 					<img src="./img/svg/plus.svg" alt="+" />
 				</button>
 			</div>
@@ -69,8 +46,8 @@ const FormView = () => {
 
 const mapStateToProps = (state) => {
 	return {
-		globalState: state,
+		slotList: state.slots,
 	};
 };
 
-export default connect(mapStateToProps, { addLabel, removeLabel })(FormView);
+export default connect(mapStateToProps, { addSlot, removeSlot })(FormView);

@@ -1,31 +1,29 @@
-const addLabel = (id, labelName) => {
+const addSlot = (id, label) => {
 	return {
-		type: "ADD_LABEL",
-		payload: {
-			id,
-			labelName,
-		},
+		type: "ADD_SLOT",
+		payload: { id, label },
 	};
 };
 
-const changeLabel = (id, labelName, tags) => {
+const changeSlotLabel = (id, label) => {
 	return {
 		type: "CHANGE_LABEL",
-		payload: {
-			id,
-			labelName,
-			tags,
-		},
+		payload: { id, label },
 	};
 };
 
-const removeLabel = (id) => {
+const changeSlotTags = (id, tags) => {
 	return {
-		type: "REMOVE_LABEL",
-		payload: {
-			id,
-		},
+		type: "CHANGE_TAGS",
+		payload: { id, tags },
 	};
 };
 
-export { addLabel, changeLabel, removeLabel };
+const removeSlot = (id) => {
+	return {
+		type: "REMOVE_SLOT",
+		payload: { id },
+	};
+};
+
+export { addSlot, changeSlotLabel, changeSlotTags, removeSlot };
