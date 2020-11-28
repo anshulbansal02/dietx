@@ -1,0 +1,68 @@
+.FormView {
+	height: 100vh;
+	position: relative;
+}
+
+.form {
+	width: 100%;
+}
+
+.view-title {
+	margin: 20px 0 20px 0;
+	font-size: 2rem;
+	align-self: flex-start;
+}
+
+.plan-title {
+	margin-bottom: 36px;
+	width: 100%;
+	font-size: 3rem;
+}
+
+.plan-title:focus {
+	border-bottom: 2px dashed rgba(0, 0, 0, 0) !important;
+
+	background-color: rgb(250, 250, 250) !important;
+}
+
+.add-btn {
+	width: 50px;
+	height: 50px;
+	background-color: #b6ffce;
+	color: #355c41;
+	border-radius: 15px;
+	border: 0;
+	font-size: 3rem;
+	font-weight: 600;
+}
+
+.final-btn {
+	width: 82%;
+	height: 50px;
+	background-color: #b6ffce;
+	color: #355c41;
+	border-radius: 15px;
+	border: 0;
+	font-weight: 600;
+	font-size: 1.5rem;
+	letter-spacing: -0.05px;
+}
+
+.FormView .btn-row {
+	position: relative;
+}
+
+.FormView .btn-row::before {
+	content: "";
+	position: absolute;
+	width: 150%;
+	height: 50px;
+	background-color: transparent;
+	background: linear-gradient(
+		0deg,
+		#fff 0%,
+		#fff 30%,
+		rgba(255, 255, 255, 0) 100%
+	);
+	top: -50px;
+}

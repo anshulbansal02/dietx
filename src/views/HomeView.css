@@ -1,0 +1,21 @@
+.HomeView .view-title {
+	margin-bottom: 30px;
+}
+
+.floating-button {
+	position: fixed;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	bottom: 30px;
+	right: 30px;
+	width: 55px;
+	height: 55px;
+	border: 0;
+	border-radius: 60px;
+	outline: none;
+	background-color: #3c965a;
+	box-shadow: 0 0.7px 0.9px rgba(0, 0, 0, 0.016),
+		0 1.7px 2.2px rgba(0, 0, 0, 0.022), 0 3.5px 4.4px rgba(0, 0, 0, 0.028),
+		0 7.3px 9.1px rgba(0, 0, 0, 0.034), 0 20px 25px rgba(0, 0, 0, 0.05);
+}

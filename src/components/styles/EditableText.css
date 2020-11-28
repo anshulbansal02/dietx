@@ -1,0 +1,12 @@
+.EditableText {
+	color: #000;
+	border: 0;
+	outline: none;
+	background-color: transparent;
+	font-family: Inter;
+	border-bottom: 2px dashed rgba(0, 0, 0, 0);
+}
+
+.EditableText:focus {
+	border-bottom: 2px dashed rgba(0, 0, 0, 0.2);
+}

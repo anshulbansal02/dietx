@@ -1,0 +1,22 @@
+.NavHeader {
+	width: 100%;
+	height: 70px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: fixed;
+	padding: 0px 30px;
+	background-color: rgba(255, 255, 255, 0.7);
+	backdrop-filter: blur(15px);
+
+	z-index: 10;
+	/* border-bottom: 1px solid rgba(0, 0, 0, 0.05); */
+}
+
+.NavHeader button {
+	background-color: transparent;
+	border: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
